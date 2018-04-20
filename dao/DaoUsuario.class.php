@@ -7,9 +7,7 @@
 			$sql = "SELECT * FROM tb_administrador WHERE login = :login";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":login",$login);
-			
 			$resposta = $sqlPreparado->execute();
-			$sqlPreparado->debugDumpParams();
 			$usuario = $this->transformaUsuarioDoBancoEmObjeto($resposta->fetch(PDO::FETCH_ASSOC));
 			return $usuario;
 			
