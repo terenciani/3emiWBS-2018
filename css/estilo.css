@@ -1,0 +1,7 @@
+.caixa-produto{
+    border: gray 1px solid;
+    text-align: center;
+    padding: 15px;
+    width: 200px;
+    box-shadow: aqua 0px 0px 0px 5px;
+}
