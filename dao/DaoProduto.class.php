@@ -19,7 +19,17 @@
 			
 			return $vetorDeObjetos;
 		}
-		public function transformaDadosDoBancoEmObjeto($dadosDoBanco)
+		public function excluir($id){
+			$sql = "DELETE  FROM tb_produto WHERE id_produto=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+		}	
+
+
+
+
+	public function transformaDadosDoBancoEmObjeto($dadosDoBanco)
 		{
 			$produto = new Produto();
 			$produto->setIdProduto($dadosDoBanco['id_produto']);

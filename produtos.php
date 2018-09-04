@@ -1,3 +1,11 @@
+<?php
+	if (isset($_GET['id'])){
+		include_once("controller/ProdutoController.class.php");
+		$controller = new ProdutoController();
+		$id=$_GET['id'];
+		$controller -> excluir($id);
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +19,19 @@
 	$dao = new DaoProduto();
 	$vetorDeProdutos= $dao->listarProdutos();
 	foreach ($vetorDeProdutos as $produto) {
-		echo "<img src='imagens/". $produto -> getImagem()."'>";
-		echo $produto -> getNome ();
-	}
+	
 	?>
+
+		<a href ="dadosproduto.php?id=<?=$produto->getIdProduto()?>" > 
+			<img src='imagens/<?=$produto->getImagem()?>'>
+		</a>
+		<a href="produtos.php?op=excluir&id=<?=$produto-> getIdProduto()?>" > 
+			excluir
+		</a>
+	<?php
+	}
+
+	?>
+	
 </body>
 </html>
