@@ -28,6 +28,9 @@
 		<a href="produtos.php?op=excluir&id=<?=$produto-> getIdProduto()?>" > 
 			excluir
 		</a>
+		<a href="alterarProduto.php?id=<?=$produto-> getIdProduto()?>" > 
+			excluir
+		</a>
 	<?php
 	}
 
